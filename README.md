@@ -9,3 +9,4 @@ One Student is in grade 11.
 
 Now. if I delete all students for which the gradeLevel is 11, and the delete fails partway through, I am left with the hash key **{student}:125**, but **{student}:125:idx** and **{student}:gradeLevel:11** have been deleted, and **125** is no longer a memeber of **{student}**.
 
+![image](https://github.com/lilyt20/redihashdemo/assets/137898840/9146afba-b388-425a-9373-170ed03f43f0)
