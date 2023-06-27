@@ -4,6 +4,9 @@ import com.example.redishashdemo.model.Student;
 import com.example.redishashdemo.repository.StudentRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class StudentController {
 
@@ -20,6 +23,7 @@ public class StudentController {
 
     @DeleteMapping("/student/delete/{gradeLevel}")
     public void deleteByGradeLevel(@RequestParam String gradeLevel) {
-        studentRepository.deleteStudentsByGradeLevel(gradeLevel);
+        Optional<List<Student>> allByGradeLevel = studentRepository.findAllByGradeLevel(gradeLevel);
+        allByGradeLevel.ifPresent(studentRepository::deleteAll);
     }
 }
